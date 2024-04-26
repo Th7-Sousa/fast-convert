@@ -11,7 +11,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={spline.className}>{children}</body>
+      <body className={` ${spline.className} min-h-screen flex flex-col`}>
+        {children}
+      </body>
     </html>
   );
 }

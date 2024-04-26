@@ -7,3 +7,21 @@
     text-wrap: balance;
   }
 }
+
+/* Estilização da barra de rolagem para ser transparente */
+.overflow-auto::-webkit-scrollbar {
+  width: 8px; /* Define a largura da barra de rolagem */
+ }
+ 
+ .overflow-auto::-webkit-scrollbar-track {
+  background: transparent; /* Fundo transparente */
+ }
+ 
+ .overflow-auto::-webkit-scrollbar-thumb {
+  background: #9E9E9E; /* Cor da barra de rolagem com transparência */
+  border-radius:0 0 2px 2px;
+ }
+ 
+ .overflow-auto::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.8); /* Cor da barra de rolagem ao passar o mouse */
+ }
