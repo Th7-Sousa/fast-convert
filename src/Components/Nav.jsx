@@ -5,7 +5,7 @@ export default function Nav() {
     <header className="w-full flex px-6 bg-mainPurple-100
     max-sm:px-2
     ">
-      <nav className="w-full flex max-sm:justify-center py-4">
+      <nav className="w-full flex justify-center py-4">
         <Image
           src="/Images/logo.svg"
           alt="Logotipo Fast Convert"
