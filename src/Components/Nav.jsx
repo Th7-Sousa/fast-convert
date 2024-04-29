@@ -7,7 +7,7 @@ export default function Nav() {
     ">
       <nav className="w-full flex max-sm:justify-center py-4">
         <Image
-          src="/Images/logo2.svg"
+          src="/Images/logo.svg"
           alt="Logotipo Fast Convert"
           width={170}
           height={100}

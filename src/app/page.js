@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Nav from "@/Components/Nav";
-import UnitTag from "@/Components/UnitTag";
-import SectionTag from "@/Components/SectionTags";
-import Container from "@/Components/Container";
+import TagList from "@/Components/TagList";
+import ContainerDefault from "@/Components/ContainerDefault";
 import Aside from "@/Components/Aside";
 import Footer from "@/Components/Footer";
+import ConvertMain from "@/Components/ConvertMain";
+import ConvertContainer from "@/Components/ConvertContainer";
 
 export default function Home() {
   return (
@@ -12,10 +13,11 @@ export default function Home() {
       <Nav />
 
       <main>
-        <Container>
-          <SectionTag />
+        <ContainerDefault>
+          <TagList />
+          <ConvertContainer />
           <Aside />
-        </Container>
+        </ContainerDefault>
 
       </main>
 

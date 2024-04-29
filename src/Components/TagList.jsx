@@ -16,7 +16,7 @@ import { FaTemperatureHigh } from "react-icons/fa";
 import { GiLightningFrequency } from "react-icons/gi";
 import { SiAirbyte } from "react-icons/si";
 
-export default function SectionTag() {
+export default function TagList() {
   const [selectedTag, setSelectedTag] = useState(null);
 
   const tags = {
@@ -53,7 +53,7 @@ export default function SectionTag() {
       icon: <FaTemperatureHigh />
     },
     frequencia: {
-      name: "FrequÊncia",
+      name: "Frequência",
       icon: <GiLightningFrequency />
     },
     digital: {
@@ -71,7 +71,7 @@ export default function SectionTag() {
   };
 
   return (
-    <section id='Section-tags' className='flex flex-col gap-2 pt-12' >
+    <aside id='Section-tags' className='flex flex-col gap-2 pt-12' >
 
       <h6 className='text-black font-medium pl-6'>Unidades para converter</h6>
       <div className=" max-h-[448px] overflow-auto border-solid border-2 border-mainPurple-100 border-l-0 flex flex-col rounded-r-sm">
@@ -85,6 +85,6 @@ export default function SectionTag() {
           />
         ))}
       </div>
-    </section>
+    </aside>
   );
 }
