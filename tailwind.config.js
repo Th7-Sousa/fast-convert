@@ -37,7 +37,7 @@ module.exports = {
         systemBlue: {
           100: '#2962FF'
         },
-        systemgreen: {
+        systemGreen: {
           100: '#4CAF50'
         },
         systemOrange: {
