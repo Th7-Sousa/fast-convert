@@ -6,6 +6,7 @@ export default function Input({ value, onChange }) {
       type="number"
       value={value}
       onChange={onChange}
+      placeholder="0"
     />
   );
 }

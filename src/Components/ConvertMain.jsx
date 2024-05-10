@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Input from "./Input";
 import Select from "./Select";
 import Result from "./Result";
@@ -11,39 +11,60 @@ export default function ConvertMain() {
 
   const Measures = {
     timer: {
-      "ns": "nanosegundos",
-      "mu": "microssegundos",
-      "ms": "milissegundos",
-      "s": "segundos",
-      "min": "minutos",
-      "h": "horas",
-      "d": "dias",
-      "week": "semanas",
-      "month": "meses",
-      "year": "anos"
+      "ns": "Nanosegundos",
+      "mu": "Microssegundos",
+      "ms": "Milissegundos",
+      "s": "Segundos",
+      "min": "Minutos",
+      "h": "Horas",
+      "d": "Dias",
+      "week": "Semanas",
+      "month": "Meses",
+      "year": "Anos"
     }
   }
 
-  const [inputValue, setInputValue] = useState('');
-  const [fromUnit, setFromUnit] = useState('');
-  const [toUnit, setToUnit] = useState('');
-  const [result, setResult] = useState('');
-
-  // Transforma o objeto timer em um array de opções para o Select
   const timerOptions = Object.entries(Measures.timer).map(([key, value]) => ({
     value: key,
     label: value
   }));
 
-  const optionsSelect = timerOptions; // Agora optionsSelect contém as opções corretas
+  const optionsSelect = timerOptions;
+
+  const [inputValue, setInputValue] = useState('');
+  const [fromUnit, setFromUnit] = useState(timerOptions[1].value);
+  const [toUnit, setToUnit] = useState(timerOptions[0].value);
+  const [result, setResult] = useState('');
+  const [unitName, setUnitName] = useState('');
+
+  useEffect(() => {
+    setUnitName(Measures.timer[toUnit]);
+  }, [Measures.timer]);
 
   const handleConversion = () => {
-    if (inputValue && fromUnit && toUnit) {
-      const convertedValue = convert(inputValue).from(fromUnit).to(toUnit)
-      setResult(convertedValue.toString());
-      console.log(convertedValue)
+    if (inputValue) {
+      console.log(inputValue, fromUnit, toUnit)
+      if (inputValue && fromUnit && toUnit) {
+        if (fromUnit != toUnit) {
+          let convertedValue = convert(inputValue).from(fromUnit).to(toUnit);
+          if (convertedValue % 1 === 0) {
+            convertedValue = convertedValue.toFixed(0);
+          } else {
+            convertedValue = convertedValue.toFixed(20);
+          }
+          setResult(`${convertedValue} ${unitName}`);
+          console.log(`${convertedValue} ${unitName}`)
+        }
+        else {
+          setResult(false)
+          alert("Unidade de medida de origem e destino são as mesmas.")
+        }
+      }
+    } else {
+      alert("Insira o valor a ser convertido!");
     }
   };
+
 
   return (
     <div id="convert-main" className="w-full flex flex-col items-center">
@@ -60,7 +81,7 @@ export default function ConvertMain() {
           </div>
         </div>
         <ButtonPrimary text='Converter' onClick={handleConversion} />
-        <Result render={result ? true : false} result={result} unity={toUnit} />
+        <Result render={result ? true : false} result={result} />
       </div>
     </div>
   );
