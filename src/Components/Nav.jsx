@@ -10,10 +10,11 @@ export default function Nav() {
           src="/Images/logo.svg"
           alt="Logotipo Fast Convert"
           width={170}
-          height={100}
+          height={170}
           priority
         />
       </nav>
     </header>
   )
 }
+
